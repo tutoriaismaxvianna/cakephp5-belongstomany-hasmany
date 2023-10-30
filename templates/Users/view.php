@@ -36,7 +36,36 @@
                 </tr>
             </table>
             <div class="related">
-                <h4><?= __('Related Projects') ?></h4>
+                <h4>MEUS PROJETOS</h4>
+                <?php if (!empty($user->my_projects)) : ?>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Title') ?></th>
+                            <th><?= __('Created') ?></th>
+                            <th><?= __('Modified') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($user->my_projects as $projects) : ?>
+                        <tr>
+                            <td><?= h($projects->id) ?></td>
+                            <td><?= h($projects->title) ?></td>
+                            <td><?= h($projects->created) ?></td>
+                            <td><?= h($projects->modified) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['controller' => 'Projects', 'action' => 'view', $projects->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Projects', 'action' => 'edit', $projects->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Projects', 'action' => 'delete', $projects->id], ['confirm' => __('Are you sure you want to delete # {0}?', $projects->id)]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="related">
+                <h4>EQUIPE</h4>
                 <?php if (!empty($user->projects)) : ?>
                 <div class="table-responsive">
                     <table>
