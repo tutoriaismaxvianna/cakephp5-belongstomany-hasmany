@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Projects Model
  *
+ * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsToMany $Users
  *
  * @method \App\Model\Entity\Project newEmptyEntity()
@@ -46,6 +47,12 @@ class ProjectsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Authors', [
+            'className' => 'Users',
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER',
+        ]);
 
         $this->belongsToMany('Users', [
             'foreignKey' => 'project_id',

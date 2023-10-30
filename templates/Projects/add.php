@@ -19,6 +19,7 @@
                 <legend><?= __('Add Project') ?></legend>
                 <?php
                     echo $this->Form->control('title');
+                    echo $this->Form->control('user_id');
                     echo $this->Form->control('users._ids', ['options' => $users]);
                 ?>
             </fieldset>

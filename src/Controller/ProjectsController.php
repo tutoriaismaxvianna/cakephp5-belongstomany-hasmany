@@ -32,7 +32,7 @@ class ProjectsController extends AppController
      */
     public function view($id = null)
     {
-        $project = $this->Projects->get($id, contain: ['Users']);
+        $project = $this->Projects->get($id, contain: ['Users', 'Authors']);
         $this->set(compact('project'));
     }
 

@@ -27,6 +27,10 @@
                     <td><?= $this->Number->format($project->id) ?></td>
                 </tr>
                 <tr>
+                    <th>Author</th>
+                    <td><?= h($project->author->name) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Created') ?></th>
                     <td><?= h($project->created) ?></td>
                 </tr>

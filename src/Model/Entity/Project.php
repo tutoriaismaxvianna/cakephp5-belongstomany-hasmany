@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $title
+ * @property int $user_id
  * @property \Cake\I18n\DateTime $created
  * @property \Cake\I18n\DateTime $modified
  *
@@ -28,6 +29,7 @@ class Project extends Entity
      */
     protected array $_accessible = [
         'title' => true,
+        'user_id' => true,
         'created' => true,
         'modified' => true,
         'users' => true,
